@@ -4,12 +4,14 @@
   "description": "Testing electron.",
   "main": "main.js",
   "scripts": {
+    "build": "npm run build-ts && npm run build-copy-html",
     "build-ts": "tsc",
     "build-ts-watch": "tsc -w",
     "build-copy-html": "node build-copy-html.js",
     "build-copy-html-watch": "node watch-copy-html.js",
     "start": "npm run build-copy-html && npm run build-ts && npm run start-electron",
-    "start-electron": "electron ./build/main.js"
+    "start-electron": "electron ./build/main.js",
+    "dist": "electron-builder"
   },
   "keywords": [
     "wuff"
@@ -18,6 +20,23 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^13.1.6",
+    "electron-builder": "^22.11.7",
     "typescript": "^4.3.5"
+  },
+  "build": {
+    "asar": false,
+    "appId": "luna.electron.app",
+    "directories": {
+      "buildResources": "src/assets",
+      "output": "dist"
+    },
+    "files": [
+      {
+        "from": "build"
+      }
+    ],
+    "win": {
+      "target": "zip"
+    }
   }
 }

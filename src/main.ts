@@ -1,10 +1,10 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const watchCopyHtml = require('../watch-copy-html');
-const magiReloadElectron = require('../magi-reload-electron');
+// const watchCopyHtml = require('../watch-copy-html');
+// const magiReloadElectron = require('../magi-reload-electron');
 // These paths is from root of the app.
-watchCopyHtml('src', 'build');
-magiReloadElectron('build');
+// watchCopyHtml('src', 'build');
+// magiReloadElectron('build');
 
 const rootNodePath = __dirname;
 
