@@ -5,13 +5,15 @@
   "main": "main.js",
   "scripts": {
     "build": "npm run build-ts && npm run build-copy-html",
+    "build-prod": "npm run build && npm run clean-production",
     "build-ts": "tsc",
     "build-ts-watch": "tsc -w",
     "build-copy-html": "node build-copy-html.js",
     "build-copy-html-watch": "node watch-copy-html.js",
+    "clean-production": "node clean-production.js",
     "start": "npm run build-copy-html && npm run build-ts && npm run start-electron",
     "start-electron": "electron ./build/main.js",
-    "dist": "electron-builder"
+    "dist": "npm run build-prod && electron-builder"
   },
   "keywords": [
     "wuff"

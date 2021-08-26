@@ -1,10 +1,14 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-// const watchCopyHtml = require('../watch-copy-html');
-// const magiReloadElectron = require('../magi-reload-electron');
+
+// Custom "preprocessor" to remove code with node.
+// #if debug
+const watchCopyHtml = require('../watch-copy-html');
+const magiReloadElectron = require('../magi-reload-electron');
 // These paths is from root of the app.
-// watchCopyHtml('src', 'build');
-// magiReloadElectron('build');
+watchCopyHtml('src', 'build');
+magiReloadElectron('build');
+// #endif debug
 
 const rootNodePath = __dirname;
 
